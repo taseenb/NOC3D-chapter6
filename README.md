@@ -8,3 +8,7 @@ All this is reeeeeeally basic and could be greatly improved. Comments and pull r
 
 
 TODO: Create a GPGPU version of some examples, using the GPU to calculate motion.
+
+![Follow path (advanced)][image]
+
+[image]: https://github.com/taseenb/NOC3D-chapter6/raw/master/image.png "Follow path (advanced)"
