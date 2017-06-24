@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Nature of code 3D - Chapter 6. Autonomous Agents</title>
+    <meta property="og:title" content="Nature of code 3D - Chapter 6. Autonomous Agents">
+    <meta property="og:description"
+          content="Daniel Shiffman's Nature of code examples examples in 3D, ported to javascript (ES6). The chapter on Autonomous Agents.">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
+    <style>
+        body {
+            background-color: #848484;
+            color: #FFF;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 13px;
+            padding: 30px;
+            margin: 0;
+        }
+
+        a {
+            color: #FFF;
+        }
+
+        li {
+            text-transform: uppercase;
+            padding: 5px 0;
+        }
+
+        li a:hover {
+            font-weight: bold;
+            color: #FFF !important;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Nature of code 3D<br>Chapter 6. Autonomous Agents</h1>
+
+<p>
+    Daniel Shiffman's <a href="http://natureofcode.com/">Nature of Code</a> examples in 3D, ported to javascript (ES6).
+</p>
+<p>
+    <strong>Note 1:</strong> Click and drag to move camera, mousewheel to zoom
+    <br>
+    <strong>Note 2:</strong> Click INFO for options
+</p>
+
+<ol id="pages">
+    <li><a href="NOC_6_01_Seek/public/index.html">Seek</a></li>
+    <li><a href="NOC_6_01_Seek_trail/public/index.html">Seek with trail</a></li>
+    <li><a href="NOC_6_02_Arrive/public/index.html">Seek and arrive</a></li>
+    <li><a href="NOC_6_03_StayWithinWalls/public/index.html">Stay within walls</a></li>
+    <li><a href="NOC_6_04_Flowfield/public/index.html">Flow field</a></li>
+    <li><a href="NOC_6_05_PathFollowingSimple/public/index.html">Follow a path (simple)</a></li>
+    <li><a href="NOC_6_06_PathFollowing/public/index.html">Follow a path (advanced)</a></li>
+    <li><a href="NOC_6_07_Align-Separate/public/index.html">Alignment and separation</a></li>
+    <li><a href="NOC_6_08_SeparationAndSeek/public/index.html">Separation and seek</a></li>
+    <li><a href="NOC_6_09_Flocking/public/index.html">Flocking</a></li>
+    <li><a href="NOC_6_13_CrowdPathFollowing/public/index.html">Crowd following a path</a></li>
+</ol>
+
+
+<script>
+  var colors = [
+    '#CFF09E',
+    '#A8DBA8',
+    '#79BD9A',
+    '#3B8686',
+    '#0B486B',
+    '#69D2E7',
+    '#A7DBD8',
+    '#E0E4CC',
+    '#F38630',
+    '#FA6900'
+  ]
+
+  var li = document.querySelectorAll('#pages li')
+  var a = document.querySelectorAll('#pages a')
+
+  li.forEach(function (li, i) {
+    var color = colors[i % colors.length]
+    li.style.color = color
+    a[i].style.color = color
+  })
+</script>
+</body>
+</html>

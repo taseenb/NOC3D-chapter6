@@ -1,0 +1,239 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+$bgColor: #FFF;
+
+body {
+  position: relative;
+  overflow: hidden;
+  background-color: $bgColor;
+  font-family: Helvetica, Arial, sans-serif;
+  color: white;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+}
+
+.canvas-container {
+  position: relative;
+}
+
+canvas {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+#loader {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/ring.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition-duration: 1s;
+  background-color: $bgColor;
+
+  .show-loader & {
+    opacity: 1;
+  }
+}
+
+
+#ui {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  box-sizing: border-box;
+  opacity: 0;
+  transition-duration: .4s;
+  transition-property: opacity;
+
+  .show-ui & {
+    opacity: 1;
+
+    #stats,
+    .info,
+    .dg.main {
+      pointer-events: auto;
+    }
+  }
+
+  #debug {
+    position: absolute;
+    z-index: 100;
+    top: 60px;
+    right: 20px;
+    padding: 20px;
+    background-color: red;
+    font-size: 10px;
+    color: white;
+    width: 200px;
+  }
+
+  #stats {
+    padding: 20px;
+  }
+
+  .dg.main {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+  }
+
+  .info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    max-width: 32%;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.2);
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    h3 {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 12px;
+      padding: 0;
+      margin: 0;
+      margin-bottom: 20px;
+    }
+
+    p {
+      padding: 0;
+      margin: 0;
+    }
+
+    .credits {
+      display: block;
+      font-size: 10px;
+      padding: 5px 0;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+  }
+
+}
+
+#captureBtn {
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 10px;
+  text-align: center;
+  width: 150px;
+  box-sizing: border-box;
+  opacity: 0;
+  pointer-events: none;
+  transition-property: opacity;
+  transition-duration: .4s;
+
+  .show-ui & {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  span {
+    white-space: nowrap;
+    padding: 4px 8px;
+    font-weight: bold;
+  }
+
+  &.off {
+    span.capture {
+      display: block;
+      background-color: black;
+      color: white;
+    }
+    span.capturing {
+      display: none;
+    }
+  }
+
+  &.on {
+    span.capturing {
+      display: block;
+      background-color: white;
+      color: black;
+    }
+    span.capture {
+      display: none;
+    }
+  }
+
+}
+
+#ui-btn {
+  position: absolute;
+  z-index: 5;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 10px;
+  text-align: center;
+  width: 150px;
+  box-sizing: border-box;
+  transition-property: opacity;
+  transition-duration: .4s;
+  opacity: 0;
+
+  .show-ui-btn & {
+    opacity: 1;
+  }
+
+  .show-ui & {
+    span.show {
+      display: none;
+    }
+    span.hide {
+      display: block;
+    }
+  }
+
+  span {
+    white-space: nowrap;
+    padding: 4px 8px;
+    font-weight: bold;
+    &.show {
+      display: block;
+      background-color: black;
+      color: white;
+    }
+    &.hide {
+      display: none;
+      background-color: white;
+      color: black;
+    }
+  }
+}
+
+#toggle-view {
+  padding: 4px;
+  width: 80px;
+  text-align: center;
+  position: absolute;
+  cursor: pointer;
+  background-color: $bgColor;
+  z-index: 100;
+}
