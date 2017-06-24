@@ -160,8 +160,8 @@ class App {
     this.capture = false
     this.capturer = new CCapture({
       // format: 'webm'
-      // format: 'png'
-      format: 'gif', workersPath: 'js/vendor/gif.js/'
+      format: 'png'
+      // format: 'gif', workersPath: 'js/vendor/gif.js/'
     })
 
     const btn = document.getElementById('captureBtn')
