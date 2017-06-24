@@ -156,7 +156,7 @@ class Vehicle {
 
       return dir
     } else {
-      this.mesh.material.color.set(this.vehicleColor)
+      this.mesh.material.color.set(this.color)
 
       return vec3()
     }
