@@ -7,4 +7,4 @@ I did this mostly to learn something more about 3D programming and Three.js, whi
 All this is reeeeeeally basic and could be greatly improved. Comments and pull requests are very welcome.
 
 
-TODO: Create a GPGPU version of the Flocking example that uses the GPU to calculate motion.
+TODO: Create a GPGPU version of some examples, using the GPU to calculate motion.
