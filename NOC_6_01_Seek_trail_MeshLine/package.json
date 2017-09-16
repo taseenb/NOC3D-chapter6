@@ -1,0 +1,46 @@
+{
+  "name": "NOC_6_01_Seek_trail_MeshLine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "run-p dev:*",
+    "dev:budo": "budo ./src/index.js:js/bundle.js --live --dir ./public -- -t babelify -t glslify",
+    "dev:sass": "sass --watch src/sass:./public/css",
+    "build": "run-p build:*",
+    "build:js": "browserify ./src/index.js -t babelify -t glslify | uglifyjs -m -c warnings=false > public/js/bundle.js",
+    "build:sass": "sass src/sass/style.scss public/css/style.css",
+    "pushall": "git add --all . && git commit -m \"update\" && git push"
+  },
+  "dependencies": {
+    "three-orbit-controls": "^82.1.0",
+    "ccapture.js": "^1.0.6"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^7.3.0",
+    "browserify": "^14.3.0",
+    "budo": "^10.0.3",
+    "glslify": "^6.1.0",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.0.2",
+    "sass": "^0.5.0",
+    "standard": "^10.0.2",
+    "uglify-js": "^3.0.8"
+  },
+  "standard": {
+    "globals": [
+      "THREE"
+    ]
+  },
+  "browserify": {
+    "transform": [
+      "glslify"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  }
+}
