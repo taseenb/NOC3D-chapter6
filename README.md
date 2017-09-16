@@ -9,6 +9,7 @@ All this is reeeeeeally basic and could be greatly improved. Comments and pull r
 **[DEMO](https://taseenb.github.io/NOC3D-chapter6/)**
 
 **TODO:** Create a GPGPU version of some examples, using the GPU to calculate motion.
+
 **TODO:** Animate the trails using a solid 3D line with materials and shadows (instead of a basic webgl line or a THREE.MeshLine by @thespite).
 
 ![Follow a path (3d mesh lines)][image]
