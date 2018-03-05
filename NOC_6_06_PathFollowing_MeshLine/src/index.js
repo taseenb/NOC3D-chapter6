@@ -2,6 +2,10 @@ const CCapture = require('ccapture.js')
 const OrbitControls = require('three-orbit-controls')(THREE)
 const Boid = require('./Boid')
 const Path = require('./Path')
+const qs = require('qs')
+
+const qsValue = qs.parse(window.location.search.replace('?', ''))
+// console.log(parseInt(qsValue['no-ui']))
 
 class App {
   constructor (opt) {
@@ -24,6 +28,13 @@ class App {
    * THREE scene, renderer, camera, shader material and particles mesh.
    */
   init3dScene () {
+    // Show UI button?
+    this.showUI = parseInt(qsValue['no-ui']) !== 1
+    if (!this.showUI) {
+      document.getElementById('ui-btn').style.display = 'none'
+    }
+    // console.log(this.showUI)
+
     // Scene
     this.scene = new THREE.Scene()
 
@@ -31,17 +42,27 @@ class App {
     this.renderer = new THREE.WebGLRenderer({
       antialias: true
     })
-    this.renderer.setClearColor(0xCCCCCC, 1)
+    this.renderer.setClearColor(0xcccccc, 1)
     this.renderer.setSize(this.width, this.height)
     document.body.appendChild(this.renderer.domElement)
 
     // Camera
-    this.camera = new THREE.PerspectiveCamera(60, this.width / this.height, 0.01, 10000)
+    this.camera = new THREE.PerspectiveCamera(
+      60,
+      this.width / this.height,
+      0.01,
+      10000
+    )
     this.camera.position.z = 80
     this.camera.position.y = 20
 
     // Dolly camera
-    this.dolly = new THREE.PerspectiveCamera(60, this.width / this.height, 0.01, 10000)
+    this.dolly = new THREE.PerspectiveCamera(
+      60,
+      this.width / this.height,
+      0.01,
+      10000
+    )
     this.dolly.rotation.y = 90 * Math.PI / 180
 
     // Camera controls
@@ -53,7 +74,14 @@ class App {
     this.pathMaxDepth = 30
     this.pointsCount = 6
     const radius = 2
-    this.path = new Path(this.scene, this.pointsCount, this.pathMaxWidth, this.pathMaxHeight, this.pathMaxDepth, radius)
+    this.path = new Path(
+      this.scene,
+      this.pointsCount,
+      this.pathMaxWidth,
+      this.pathMaxHeight,
+      this.pathMaxDepth,
+      radius
+    )
 
     // // Create vehicle
     this.boids = []
@@ -64,7 +92,9 @@ class App {
       position.x = this.path.points[0].x
       position.y = this.path.points[0].y * Math.random()
       position.z = this.path.points[0].z * Math.random()
-      this.boids.push(new Boid(i, this.scene, position, maxspeed, maxforce, this.path))
+      this.boids.push(
+        new Boid(i, this.scene, position, maxspeed, maxforce, this.path)
+      )
       // console.log(i, this.vehicles[i])
       // console.log(maxspeed, maxforce)
     }
@@ -72,7 +102,12 @@ class App {
     // 3d grid
     this.grid = new THREE.Mesh(
       new THREE.PlaneBufferGeometry(40, 40, 10, 10),
-      new THREE.MeshBasicMaterial({wireframe: true, color: '#999999', transparent: true, opacity: 0.2})
+      new THREE.MeshBasicMaterial({
+        wireframe: true,
+        color: '#999999',
+        transparent: true,
+        opacity: 0.2
+      })
     )
     this.grid.visible = false
     this.grid.rotation.x = 90 * Math.PI / 180
@@ -100,7 +135,7 @@ class App {
   }
 
   render (now, delta) {
-    this.boids.forEach((v) => {
+    this.boids.forEach(v => {
       if (this.animate) {
         v.follow(this.path)
         v.update()
@@ -110,7 +145,11 @@ class App {
 
     if (this.useDolly) {
       const v = this.boids[this.options.boids - 1]
-      this.dolly.position.set(v.position.x - 20, v.position.y, v.position.z + 10)
+      this.dolly.position.set(
+        v.position.x - 20,
+        v.position.y,
+        v.position.z + 10
+      )
       this.dolly.lookAt(v.position)
     }
 
@@ -135,7 +174,7 @@ class App {
   }
 
   initEvents () {
-    document.body.addEventListener('keyup', (e) => {
+    document.body.addEventListener('keyup', e => {
       // Restart vehicles from starting position
       if (e.key === 'r' || e.key === 'R') {
         for (let i = 0, il = this.boids.length; i < il; i++) {
@@ -169,7 +208,7 @@ class App {
     document.body.classList.remove('show-loader')
     document.body.classList.add('show-ui-btn')
 
-    document.getElementById('ui-btn').addEventListener('click', (e) => {
+    document.getElementById('ui-btn').addEventListener('click', e => {
       document.body.classList.toggle('show-ui')
     })
 

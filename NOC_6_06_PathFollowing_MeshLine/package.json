@@ -15,6 +15,7 @@
   "dependencies": {
     "alea": "0.0.9",
     "ccapture.js": "^1.0.6",
+    "qs": "^6.5.1",
     "simplex-noise": "^2.3.0",
     "three-orbit-controls": "^82.1.0"
   },
