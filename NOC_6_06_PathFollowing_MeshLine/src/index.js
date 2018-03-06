@@ -38,12 +38,15 @@ class App {
       document.getElementById('ui-btn').style.display = 'none'
     }
     if (this.demoMode) {
-      setInterval(() => {
+      const useDollyInterval = setInterval(() => {
         this.useDolly = !this.useDolly
       }, 10000)
       setInterval(() => {
         this.renewPath()
       }, 25000)
+      document.addEventListener('click', () => {
+        clearInterval(useDollyInterval)
+      })
     }
     // console.log(this.showUI, this.useDolly)
 
