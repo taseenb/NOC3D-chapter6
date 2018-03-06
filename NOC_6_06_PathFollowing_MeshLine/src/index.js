@@ -43,7 +43,7 @@ class App {
         this.renewPath()
       }, 25000)
     }
-    console.log(this.showUI, this.useDolly)
+    // console.log(this.showUI, this.useDolly)
 
     // Scene
     this.scene = new THREE.Scene()
