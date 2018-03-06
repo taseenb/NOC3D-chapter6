@@ -28,12 +28,16 @@ class App {
    * THREE scene, renderer, camera, shader material and particles mesh.
    */
   init3dScene () {
-    // Show UI button?
+    // Query string options
     this.showUI = parseInt(qsValue['no-ui']) !== 1
     this.useDolly = parseInt(qsValue['use-dolly']) === 1
     this.demoMode = parseInt(qsValue['demo-mode']) === 1
+    this.showGrid = parseInt(qsValue['show-grid']) === 1
     if (!this.showUI) {
       document.getElementById('ui-btn').style.display = 'none'
+    }
+    if (this.showGrid) {
+      this.grid.visible = true
     }
     if (this.demoMode) {
       setInterval(() => {
