@@ -46,6 +46,7 @@ class App {
       }, 25000)
       document.addEventListener('click', () => {
         clearInterval(useDollyInterval)
+        this.useDolly = false
       })
     }
     // console.log(this.showUI, this.useDolly)
@@ -62,22 +63,12 @@ class App {
     document.body.appendChild(this.renderer.domElement)
 
     // Camera
-    this.camera = new THREE.PerspectiveCamera(
-      60,
-      this.width / this.height,
-      0.01,
-      10000
-    )
+    this.camera = new THREE.PerspectiveCamera(60, this.width / this.height, 0.01, 10000)
     this.camera.position.z = this.cameraDistance || 80
     this.camera.position.y = 20
 
     // Dolly camera
-    this.dolly = new THREE.PerspectiveCamera(
-      60,
-      this.width / this.height,
-      0.01,
-      10000
-    )
+    this.dolly = new THREE.PerspectiveCamera(60, this.width / this.height, 0.01, 10000)
     this.dolly.rotation.y = 90 * Math.PI / 180
 
     // Camera controls
@@ -107,9 +98,7 @@ class App {
       position.x = this.path.points[0].x
       position.y = this.path.points[0].y * Math.random()
       position.z = this.path.points[0].z * Math.random()
-      this.boids.push(
-        new Boid(i, this.scene, position, maxspeed, maxforce, this.path)
-      )
+      this.boids.push(new Boid(i, this.scene, position, maxspeed, maxforce, this.path))
       // console.log(i, this.vehicles[i])
       // console.log(maxspeed, maxforce)
     }
@@ -160,11 +149,7 @@ class App {
 
     if (this.useDolly) {
       const v = this.boids[this.options.boids - 1]
-      this.dolly.position.set(
-        v.position.x - 20,
-        v.position.y,
-        v.position.z + 10
-      )
+      this.dolly.position.set(v.position.x - 20, v.position.y, v.position.z + 10)
       this.dolly.lookAt(v.position)
     }
 
