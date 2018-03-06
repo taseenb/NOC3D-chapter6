@@ -120,7 +120,7 @@ class App {
         opacity: 0.2
       })
     )
-    this.grid.visible = !this.showGrid
+    this.grid.visible = this.showGrid
     this.grid.rotation.x = 90 * Math.PI / 180
     this.scene.add(this.grid)
 
