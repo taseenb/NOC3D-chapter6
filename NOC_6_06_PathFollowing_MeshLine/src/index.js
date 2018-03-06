@@ -30,10 +30,11 @@ class App {
   init3dScene () {
     // Show UI button?
     this.showUI = parseInt(qsValue['no-ui']) !== 1
+    this.useDolly = parseInt(qsValue['use-dolly']) === 1
     if (!this.showUI) {
       document.getElementById('ui-btn').style.display = 'none'
     }
-    console.log(this.showUI)
+    console.log(this.showUI, this.useDolly)
 
     // Scene
     this.scene = new THREE.Scene()
