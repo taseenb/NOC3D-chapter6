@@ -36,9 +36,6 @@ class App {
     if (!this.showUI) {
       document.getElementById('ui-btn').style.display = 'none'
     }
-    if (this.showGrid) {
-      this.grid.visible = true
-    }
     if (this.demoMode) {
       setInterval(() => {
         this.useDolly = !this.useDolly
@@ -123,7 +120,7 @@ class App {
         opacity: 0.2
       })
     )
-    this.grid.visible = false
+    this.grid.visible = !this.showGrid
     this.grid.rotation.x = 90 * Math.PI / 180
     this.scene.add(this.grid)
 
