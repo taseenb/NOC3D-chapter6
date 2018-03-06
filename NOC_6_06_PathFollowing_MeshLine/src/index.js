@@ -31,8 +31,17 @@ class App {
     // Show UI button?
     this.showUI = parseInt(qsValue['no-ui']) !== 1
     this.useDolly = parseInt(qsValue['use-dolly']) === 1
+    this.demoMode = parseInt(qsValue['demo-mode']) === 1
     if (!this.showUI) {
       document.getElementById('ui-btn').style.display = 'none'
+    }
+    if (this.demoMode) {
+      setInterval(() => {
+        this.useDolly = !this.useDolly
+      }, 10000)
+      setInterval(() => {
+        this.renewPath()
+      }, 25000)
     }
     console.log(this.showUI, this.useDolly)
 
@@ -195,14 +204,18 @@ class App {
       }
 
       if (e.key === 'p' || e.key === 'P') {
-        this.path.createPoints()
-        this.path.update()
+        this.renewPath()
       }
 
       if (e.key === 'c' || e.key === 'C') {
         this.useDolly = !this.useDolly
       }
     })
+  }
+
+  renewPath () {
+    this.path.createPoints()
+    this.path.update()
   }
 
   initUI () {
