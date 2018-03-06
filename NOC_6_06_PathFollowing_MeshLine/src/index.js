@@ -33,7 +33,7 @@ class App {
     if (!this.showUI) {
       document.getElementById('ui-btn').style.display = 'none'
     }
-    // console.log(this.showUI)
+    console.log(this.showUI)
 
     // Scene
     this.scene = new THREE.Scene()
