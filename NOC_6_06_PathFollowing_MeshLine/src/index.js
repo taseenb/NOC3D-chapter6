@@ -33,6 +33,7 @@ class App {
     this.useDolly = parseInt(qsValue['use-dolly']) === 1
     this.demoMode = parseInt(qsValue['demo-mode']) === 1
     this.showGrid = parseInt(qsValue['show-grid']) === 1
+    this.cameraDistance = parseInt(qsValue['camera-distance'])
     if (!this.showUI) {
       document.getElementById('ui-btn').style.display = 'none'
     }
@@ -64,7 +65,7 @@ class App {
       0.01,
       10000
     )
-    this.camera.position.z = 80
+    this.camera.position.z = this.cameraDistance || 80
     this.camera.position.y = 20
 
     // Dolly camera
