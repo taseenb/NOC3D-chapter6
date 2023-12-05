@@ -25,11 +25,12 @@
     "npm-run-all": "^4.0.2",
     "sass": "^1.69.5",
     "standard": "^17.1.0",
-    "uglify-js": "^3.0.8"
+    "uglify-js": "^3.17.4"
   },
   "standard": {
     "globals": [
-      "THREE"
+      "THREE",
+      "CCapture"
     ]
   },
   "browserify": {

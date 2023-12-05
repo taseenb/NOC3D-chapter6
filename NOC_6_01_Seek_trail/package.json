@@ -24,12 +24,13 @@
     "glslify": "^7.1.1",
     "npm-run-all": "^4.0.2",
     "sass": "^0.5.0",
-    "standard": "^10.0.2",
-    "uglify-js": "^3.0.8"
+    "standard": "^17.1.0",
+    "uglify-js": "^3.17.4"
   },
   "standard": {
     "globals": [
-      "THREE"
+      "THREE",
+      "CCapture"
     ]
   },
   "browserify": {
@@ -37,7 +38,7 @@
       "glslify"
     ]
   },
-"babel": {
+  "babel": {
     "presets": [
       [
         "@babel/preset-env",
