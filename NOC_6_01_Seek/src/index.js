@@ -1,4 +1,3 @@
-const CCapture = require('ccapture.js')
 const OrbitControls = require('three-orbit-controls')(THREE)
 const Vehicle = require('./Vehicle')
 

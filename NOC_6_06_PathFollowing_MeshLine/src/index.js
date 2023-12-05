@@ -1,4 +1,4 @@
-const CCapture = require('ccapture.js')
+
 const OrbitControls = require('three-orbit-controls')(THREE)
 const Boid = require('./Boid')
 const Path = require('./Path')

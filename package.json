@@ -1,0 +1,11 @@
+{
+  "name": "noc-3d-chapter6",
+  "version": "1.0.0",
+  "repository": "https://github.com/taseenb/NOC3D-chapter6.git",
+  "license": "MIT",
+  "scripts": {
+    "install:all": "for D in */; do echo \"Installing stuff on ${D}\" && yarn --cwd \"${D}\"; done",
+    "audit:all": "for D in */; do echo \"Auditing ${D}\" && yarn --cwd \"${D}\" audit; done",
+    "upgrade:all": "for D in */; do echo \"Upgrading ${D}\" && yarn --cwd \"${D}\" upgrade-interactive; done"
+  }
+}
